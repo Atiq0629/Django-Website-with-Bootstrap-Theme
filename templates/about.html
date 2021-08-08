@@ -1,0 +1,59 @@
+{% extends 'layouts.html' %}
+
+{% block title %}
+    About
+{% endblock title %}
+
+{% block content %}
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>About</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>About</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+
+
+    <section id="contact" class="contact">
+      <div class="container">
+      <h3>{{heading1}}</h3>
+      <br>
+        <form action="" method="POST">
+          {{test_form.as_p}}
+          {% csrf_token %}
+          <input type="submit" name="submit" value="Submit">
+        </form>
+
+        <hr>
+        <br>
+        <h3>{{heading}}</h3><br>
+        <table class="table table-striped table-borderd">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Instrument</th>
+          </tr>
+          {% for row in musician_table_data.musician %}
+            <tr>
+              <td>{{row.first_name}}</td>
+              <td>{{row.last_name}}</td>
+              <td>{{row.instrument}}</td>
+            </tr>
+          {% endfor %}
+        </table>
+        
+
+        
+
+      </div>
+    </section><!-- End Contact Section -->
+{% endblock  %}
